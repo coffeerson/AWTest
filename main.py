@@ -1,13 +1,12 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import QMainWindow, QApplication
+from UI import MainWindowsLayout
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    w_Main = QWidget()
-    w_Main.resize(300, 150)
-    w_Main.move(300, 300)
-    w_Main.setWindowTitle('AWTest')
-
+    w_Main = QMainWindow()
+    ui = MainWindowsLayout.Ui_MainWindow()
+    ui.setupUi(w_Main)
     w_Main.show()
-    
+
     sys.exit(app.exec_())
