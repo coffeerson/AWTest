@@ -1,15 +1,10 @@
 from PySide2 import QtCore
-from PySide2.QtWidgets import QGraphicsDropShadowEffect
-
-from main import *
 
 GLOBAL_STATE = 0
 
 
 class UiFunctions(QMainWindow):
     def __init__(self):
-        self.ui.shadow = QGraphicsDropShadowEffect(self)
-        self.ui = QUiLoader().load('UI\OptionSelect.ui')
 
     def maximize_restore(self):
         global GLOBAL_STATE
@@ -31,7 +26,8 @@ class UiFunctions(QMainWindow):
 
         # set drop shadow window
 
-        self.ui.pushButton_maximize.clicked.connect(lambda: UiFunctions.maximize_restore(self))
+        self.ui.pushButton_maximize.clicked.connect(
+            lambda: UiFunctions.maximize_restore(self))
 
     def return_status(self):
         return GLOBAL_STATE
