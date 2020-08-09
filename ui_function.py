@@ -1,11 +1,10 @@
 from PySide2 import QtCore
+from PySide2.QtWidgets import QMainWindow
 
 GLOBAL_STATE = 0
 
 
 class UiFunctions(QMainWindow):
-    def __init__(self):
-
     def maximize_restore(self):
         global GLOBAL_STATE
         status = GLOBAL_STATE
@@ -29,5 +28,3 @@ class UiFunctions(QMainWindow):
         self.ui.pushButton_maximize.clicked.connect(
             lambda: UiFunctions.maximize_restore(self))
 
-    def return_status(self):
-        return GLOBAL_STATE
