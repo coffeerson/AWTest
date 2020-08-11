@@ -9,7 +9,7 @@ class UiFunctions(QMainWindow):
         global GLOBAL_STATE
         status = GLOBAL_STATE
 
-        # if not maximized
+        # --》if not maximized
         if status == 0:
             self.ui.showMaximized()
             GLOBAL_STATE = 1

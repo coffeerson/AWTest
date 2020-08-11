@@ -60,7 +60,7 @@
        <string notr="true">background-color: rgb(128, 142, 149);</string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
@@ -211,12 +211,12 @@ color: rgb(102, 102, 102);
      </widget>
     </item>
     <item>
-     <widget class="QFrame" name="frame_Center">
+     <widget class="QFrame" name="frame">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(128, 142, 149);</string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
