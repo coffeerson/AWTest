@@ -4,7 +4,7 @@ from PySide2.QtWidgets import QMainWindow
 GLOBAL_STATE = 0
 
 
-class UiFunctions(QMainWindow):
+class OptionSelectFunctions(QMainWindow):
     def maximize_restore(self):
         global GLOBAL_STATE
         status = GLOBAL_STATE
@@ -19,12 +19,11 @@ class UiFunctions(QMainWindow):
             self.ui.resize(self.ui.width() + 1, self.ui.height() + 1)
 
     def ui_definition(self):
-        # remove title bar
+        # --》remove title bar
         self.ui.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.ui.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
-        # set drop shadow window
-
+        # --》连接click按钮到最大化功能
         self.ui.pushButton_maximize.clicked.connect(
-            lambda: UiFunctions.maximize_restore(self))
+            lambda: OptionSelectFunctions.maximize_restore(self))
 

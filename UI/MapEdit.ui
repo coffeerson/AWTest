@@ -36,7 +36,7 @@
     <number>5</number>
    </property>
    <item>
-    <widget class="QGraphicsView" name="graphicsView">
+    <widget class="MapEditFunction" name="mapView">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
@@ -93,7 +93,7 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="QGraphicsView" name="graphicsView_2"/>
+            <widget class="QGraphicsView" name="chipView"/>
            </item>
           </layout>
          </widget>
@@ -138,6 +138,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MapEditFunction</class>
+   <extends>QGraphicsView</extends>
+   <header location="global">mapEdit_function.py</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

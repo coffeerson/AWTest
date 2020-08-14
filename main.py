@@ -1,33 +1,48 @@
 import sys
 from PySide2.QtWidgets import QApplication
 from PySide2.QtUiTools import QUiLoader
-from ui_function import *
+from optionSelect_function import *
+from mapEdit_function import *
 
 
 class OptionSelect(QMainWindow):
     def __init__(self):
-        # 从文件中加载UI定义
-        # 从 UI 定义中动态 创建一个相应的窗口对象#
-        # 注意：里面的控件对象也成为窗口对象的属性了
-        # 比如 self.ui.button , self.ui.textEdit
-        self.ui = QUiLoader().load('UI\OptionSelect.ui')
-        UiFunctions.ui_definition(self)
+        # -->从文件中加载UI定义
+        # -->从 UI 定义中动态 创建一个相应的窗口对象#
+        # -->注意：里面的控件对象也成为窗口对象的属性了
+        # -->比如 self.ui.button , self.ui.textEdit
+        self.ui = QUiLoader().load('UI\\OptionSelect.ui')
+        OptionSelectFunctions.ui_definition(self)
         self.ui.show()
 
 
-class MapEdit(QMainWindow):
-    def __init__(self):
-        # 从文件中加载UI定义
-        # 从 UI 定义中动态 创建一个相应的窗口对象#
-        # 注意：里面的控件对象也成为窗口对象的属性了
-        # 比如 self.ui.button , self.ui.textEdit
-        self.ui = QUiLoader().load('UI\MapEdit.ui')
+class MapEdit(QWidget):
+    def __init__(self, parent=None):
+        super(MapEdit, self).__init__(parent)
+        # ui_file = QtCore.QFile('UI\\MapEdit.ui')
+        # ui_file.open(QtCore.QFile.ReadOnly)
+
+        # -->从文件中加载UI定义
+        # -->从 UI 定义中动态 创建一个相应的窗口对象#
+        # -->注意：里面的控件对象也成为窗口对象的属性了
+        # -->比如 self.ui.button , self.ui.textEdit
+        loader = UiLoader()
+        self.ui = loader.load('UI\\MapEdit.ui')
         self.ui.show()
+
+
+# --》重写QUiLoader，用来加载自定义的widget
+class UiLoader(QUiLoader):
+    def createWidget(self, className, parent=None, name=""):
+        if className == "MapEditFunction":
+            widget = MapEditFunction(parent)
+            widget.setObjectName(name)
+            return widget
+        return super(UiLoader, self).createWidget(className, parent, name)
 
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    # app.setStyle('Fusion')
+    app = QApplication(sys.argv)  # app.setStyle('Fusion')
     pageOptionSelect = OptionSelect()
     pageMapEdit = MapEdit()
 
