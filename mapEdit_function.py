@@ -1,24 +1,21 @@
 from PySide2.QtGui import *
-from PySide2.QtWidgets import QWidget
-from PySide2.QtCore import Qt, QRect
+from PySide2.QtWidgets import QGraphicsScene, QWidget
 
 
+# --》重写paintEvent
 class MapEditFunction(QWidget):
-    def paintEvent(self, event):
-        """
-                the method paintEvent() is called automatically
-                the QPainter class does all the low-level drawing
-                coded between its methods begin() and end()
-                """
-        painter = QPainter(self)
-        painter.begin(self)
-
-        painter.setPen(Qt.blue)
-        rectangle = QRect(10, 20, 80, 60)
-        # 绘制矩形区域
-        painter.drawRect(rectangle)
-        # 填充矩形区域，使用蓝色的刷子
-        painter.fillRect(rectangle, QBrush(QColor(Qt.blue)))
-
-        painter.end()
-
+    def waferPainter(self):
+        blackPen = QPen(Qt.black)
+        blueBrush = QBrush(Qt.blue)
+        scene = QGraphicsScene()
+        text1 = scene.addText("Hello, world!")
+        chipNumX = 3
+        chipNumY = 3
+        canvasWidth = self.ui.mapView.width()
+        canvasHeight = self.ui.mapView.height()
+        chipWidthX = canvasWidth/chipNumX
+        chipHeightY = canvasHeight/chipNumY
+        for numx in range(0, chipNumX):
+            for numy in range(0, chipNumY):
+                scene.addRect(numx*chipWidthX, numy*chipHeightY, chipWidthX, chipHeightY, blackPen, blueBrush)
+        self.ui.mapView.setScene(scene)
