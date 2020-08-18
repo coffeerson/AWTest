@@ -9,8 +9,8 @@ class MapEditFunction(QWidget):
         blueBrush = QBrush(Qt.blue)
         scene = QGraphicsScene()
         text1 = scene.addText("Hello, world!")
-        chipNumX = 3
-        chipNumY = 3
+        chipNumX = 500
+        chipNumY = 500
         canvasWidth = self.ui.mapView.width()
         canvasHeight = self.ui.mapView.height()
         chipWidthX = canvasWidth/chipNumX
