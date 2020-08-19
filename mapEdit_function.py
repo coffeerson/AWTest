@@ -6,16 +6,21 @@ from PySide2.QtWidgets import QGraphicsScene, QWidget
 class MapEditFunction(QWidget):
     def waferPainter(self):
         blackPen = QPen(Qt.black)
+        blackPen.setWidth(1)
         blueBrush = QBrush(Qt.blue)
         scene = QGraphicsScene()
-        text1 = scene.addText("Hello, world!")
-        chipNumX = 500
-        chipNumY = 500
+        chipNumX = 100
+        chipNumY = 100
         canvasWidth = self.ui.mapView.width()
         canvasHeight = self.ui.mapView.height()
-        chipWidthX = canvasWidth/chipNumX
-        chipHeightY = canvasHeight/chipNumY
+        chipWidthX = (canvasWidth - 5) / chipNumX
+        chipHeightY = (canvasHeight - 5) / chipNumY
+
         for numx in range(0, chipNumX):
             for numy in range(0, chipNumY):
-                scene.addRect(numx*chipWidthX, numy*chipHeightY, chipWidthX, chipHeightY, blackPen, blueBrush)
+                scene.addRect(numx * chipWidthX, numy * chipHeightY, chipWidthX, chipHeightY, blackPen, blueBrush)
+        scene.addEllipse(0, 0, canvasWidth - 5, canvasHeight - 5, blackPen)
+        self.ui.mapView.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.ui.mapView.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.ui.mapView.setScene(scene)
+

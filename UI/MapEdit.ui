@@ -48,14 +48,14 @@
      </property>
      <property name="minimumSize">
       <size>
-       <width>990</width>
-       <height>990</height>
+       <width>991</width>
+       <height>991</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>990</width>
-       <height>990</height>
+       <width>991</width>
+       <height>991</height>
       </size>
      </property>
      <property name="sizeIncrement">
@@ -77,7 +77,7 @@
       <enum>QFrame::Panel</enum>
      </property>
      <property name="frameShadow">
-      <enum>QFrame::Plain</enum>
+      <enum>QFrame::Sunken</enum>
      </property>
      <property name="lineWidth">
       <number>1</number>
