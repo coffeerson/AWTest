@@ -1,5 +1,5 @@
 from PySide2.QtGui import *
-from PySide2.QtWidgets import QGraphicsScene, QWidget
+from PySide2.QtWidgets import QGraphicsScene, QWidget, QGraphicsEllipseItem
 
 
 # --》重写paintEvent
@@ -15,12 +15,15 @@ class MapEditFunction(QWidget):
         canvasHeight = self.ui.mapView.height()
         chipWidthX = (canvasWidth - 5) / chipNumX
         chipHeightY = (canvasHeight - 5) / chipNumY
-
+        waferEllipse = QGraphicsEllipseItem()
+        scene.addEllipse(0, 0, canvasWidth - 5, canvasHeight - 5, blackPen)
         for numx in range(0, chipNumX):
             for numy in range(0, chipNumY):
                 scene.addRect(numx * chipWidthX, numy * chipHeightY, chipWidthX, chipHeightY, blackPen, blueBrush)
-        scene.addEllipse(0, 0, canvasWidth - 5, canvasHeight - 5, blackPen)
+
+
+        # --》隐藏graphicsView的滚动条
         self.ui.mapView.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.ui.mapView.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.ui.mapView.setScene(scene)
 
+        self.ui.mapView.setScene(scene)

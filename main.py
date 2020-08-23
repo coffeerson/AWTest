@@ -42,6 +42,6 @@ class UiLoader(QUiLoader):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)  # app.setStyle('Fusion')
-    pageOptionSelect = OptionSelect()
+    # pageOptionSelect = OptionSelect()
     pageMapEdit = MapEdit()
     sys.exit(app.exec_())
