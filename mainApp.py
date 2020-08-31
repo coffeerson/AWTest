@@ -7,5 +7,5 @@ if __name__ == "__main__":
 
     app = QApplication(sys.argv)
     engine = QQmlApplicationEngine("UI\\MapEdit.qml")
-    print(engine)
+
     app.exec_()
