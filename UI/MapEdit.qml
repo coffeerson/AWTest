@@ -1,5 +1,4 @@
 import QtQuick 2.7
-import QtQuick.Window 2.3
 import QtQuick.Controls 2.3
 
 
@@ -21,6 +20,12 @@ ApplicationWindow {
         height: 200
         color: 'green'
         anchors.centerIn: parent
+    }
+
+    Dial {
+        id: dial
+        x: 240
+        y: 260
     }
 }
 
