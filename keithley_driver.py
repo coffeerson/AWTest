@@ -18,5 +18,8 @@ my_instrument.write('smua.source.limitv=100')
 my_instrument.write('smua.source.output=1')
 my_instrument.write('smua.measure.v(smua.nvbuffer1)')
 my_instrument.write('print(smua.nvbuffer1[1])')
+my_instrument.write('smua.source.output=0')
+my_instrument.write('reset()')
+
 
 my_instrument = rm.close()
