@@ -24,10 +24,30 @@ ApplicationWindow {
         anchors.centerIn: parent
     }
 
-    Dial {
-        id: dial
-        x: 240
-        y: 260
+    Text {
+        id: helloText
+        text: "hello world"
+        y: 30
+        anchors.centerIn: parent
+        font.pointSize: 24
+        font.bold: true
+    }
+
+    Grid {
+        id: colorPicker
+        x: 4
+        y: 800
+        
+        rows: 2
+        columns: 3
+        spacing: 3
+
+        Chip{ cellColor: "red"; onClicked: helloText.color = cellColor }
+        Chip{ cellColor: "green"; onClicked: helloText.color = cellColor }
+        Chip{ cellColor: "blue"; onClicked: helloText.color = cellColor }
+        Chip{ cellColor: "yellow"; onClicked: helloText.color = cellColor }
+        Chip{ cellColor: "steelblue"; onClicked: helloText.color = cellColor }
+        Chip{ cellColor: "black"; onClicked: helloText.color = cellColor }
     }
 }
 
