@@ -16,6 +16,8 @@ ApplicationWindow {
     visible: true
 
     Rectangle{
+        id: test
+        objectName: "test"
         width: 200
         height: 200
         color: 'green'
