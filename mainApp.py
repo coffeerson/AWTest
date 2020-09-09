@@ -15,4 +15,5 @@ if __name__ == "__main__":
     # -->修改该组件的参数
     #testObject.setProperty("width", 100)
 
+
     sys.exit(app.exec_())
