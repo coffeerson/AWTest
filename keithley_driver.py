@@ -21,5 +21,13 @@ my_instrument.write('print(smua.nvbuffer1[1])')
 my_instrument.write('smua.source.output=0')
 my_instrument.write('reset()')
 
+# ->关闭测试仪通道
+my_instrument.write('smua.source.output=0')
+my_instrument.write('smub.source.output=0')
+my_instrument.write('node[2].smua.source.output=0')
+
+# ->打印结果
+print(my_instrument.read())
+
 
 my_instrument = rm.close()
